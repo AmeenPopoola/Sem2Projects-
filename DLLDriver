@@ -1,0 +1,38 @@
+public class DLLDriver{
+    //Name-Ameen Popoola
+    //ID-20231717
+    public static void main(String[] args) {
+        DLL phoneBook = new DLL();
+        
+        Contact Ameen = new Contact("Ameen Popoola","0831859760","","","","");
+        Contact Alexander = new Contact("Alexander Hamilton" ,"1-212-736-5000","FoundingFather@elitemail.com","","","");
+        Contact Lebron = new Contact("Lebron James","","","","","");
+        Contact Ole = new Contact("Ole Gunnar Solskjaer","0300 200 3300","TacticallyInCapable@notactics.com","Ole Gunnar","Fraudulent Activity","@OleOut");
+        Contact George= new Contact("George Russell","+44 713 8365 7213","MercedesNeedGeorge@ByeByeValtteri.com","Big George","gRussell63","@GeorgeRussell");
+        Contact Kobe = new Contact("Kobe","0824","","","","");
+        
+        phoneBook.addFirst(Ameen);
+        phoneBook.add(0,Alexander);
+        phoneBook.add(1,Lebron);
+        phoneBook.addLast(Ole);
+        phoneBook.add(2,George);
+        phoneBook.add(3,Kobe);
+        
+        System.out.println(phoneBook.findByName("Charlie"));
+        System.out.println(phoneBook.findByName("George Russell"));
+        
+        System.out.println(phoneBook.get(5));
+        
+        System.out.println(phoneBook.contains(Lebron));
+        System.out.println(phoneBook.contains(Kobe));
+        
+        
+        System.out.println(phoneBook.size());
+        phoneBook.display();
+        
+        
+        
+        
+        
+    }
+}
