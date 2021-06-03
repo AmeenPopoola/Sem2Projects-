@@ -1,0 +1,93 @@
+//Name-Ameen Popoola
+//ID-20231717
+import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+
+public class DLL { 
+    private DLLNode head ;
+    private DLLNode tail;
+    private int size;
+
+    public void add(int index, Contact c){
+        DLLNode newItem= new DLLNode(c);
+        DLLNode current=head;
+        if(index>=0||size() >index){
+            for(int i=0;i<index;i++){
+                current=current.getNext();
+            }
+            newItem.setNext(head);
+            head = newItem;
+            size++;
+        } else if(index < 0 || index > size()){
+            throw new IndexOutOfBoundsException();
+        }
+    }
+
+    public void addFirst( Contact c){
+        DLLNode newItem = new DLLNode(c);
+        if(head == null){
+            head=tail=newItem;
+        } else {
+            newItem.setNext(head);
+            head=newItem;
+        }
+        size++;
+    }
+
+    public void addLast(Contact c){
+        DLLNode newItem = new DLLNode(c);
+        if(tail == null){
+            head=tail=newItem;
+        } else {
+            tail.setNext(newItem);
+            tail=newItem;
+        }
+        size++;
+    }
+
+    public int size(){
+        return size;
+    }
+
+    public void display()  {
+        DLLNode current ;
+        for(current = head ; current != null ; current = current.getNext()) {
+            System.out.println(current.getContact()) ;
+        }
+    }
+
+    public boolean contains (Contact c){
+        DLLNode current;
+        for(current = head ; current.getContact().compareTo(c)==0; current = current.getNext()) {
+            if(current.getContact().equals(c)){
+                return true;
+            } else {
+                return false;
+            }
+        }  return true||false;
+    }
+
+    public Contact findByName(java.lang.String searchName){
+        DLLNode current;
+        for(current = head ; current.getContact().getContactName().compareTo(searchName)==0  ; current = current.getNext()) {
+            if(current.getContact().equals(searchName)){
+                return current.getContact();
+            } else {
+                return null;
+            }
+        }   return current.getContact();
+    }
+
+    public Contact get(int index){
+        DLLNode current=head;
+        if (index>=0 || index < size()) {
+            for(int i = 0; i < index; i++) {
+                current = current.getNext();
+            } 
+        } else if (index < 0 || index > size) {
+            return null;
+        }   
+        return current.getContact();
+    } 
+}
